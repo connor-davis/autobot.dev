@@ -1,22 +1,23 @@
+import MenuSheet from "@/components/menu-sheet";
 import ThemeSelector from "@/components/theme-selecter";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { Label } from "@/components/ui/label";
-import { Menubar } from "@/components/ui/menubar";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import { MoonIcon, OpenInNewWindowIcon, SunIcon } from "@radix-ui/react-icons";
-import Image from "next/image";
+import { OpenInNewWindowIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="flex flex-col w-screen h-screen">
       <div className="flex items-center justify-between p-3 border-b border-border">
+        <Label className="text-2xl font-bold lg:hidden text-primary">
+          <Link href="/">Autobot</Link>
+        </Label>
+
+        <MenuSheet />
+      </div>
+
+      <div className="items-center justify-between hidden p-3 border-b lg:flex border-border">
         <div className="flex items-center space-x-5">
           <Label className="text-2xl font-bold text-primary">
             <Link href="/">Autobot</Link>
@@ -32,7 +33,6 @@ export default function Home() {
             </div>
           </Link>
         </div>
-
         <div className="flex items-center space-x-5">
           <ThemeSelector />
 
@@ -50,9 +50,10 @@ export default function Home() {
             </SignInButton>
           </SignedOut>
         </div>
+        fd
       </div>
 
-      <div className="flex flex-col w-full h-full overflow-y-auto lg:px-96">
+      <div className="flex flex-col w-full h-full px-10 overflow-y-auto lg:px-96">
         <div className="grid grid-cols-1 gap-10 py-10 lg:grid-cols-3">
           <div className="flex flex-col col-span-2 space-y-10">
             <Label className="text-4xl font-bold">
@@ -77,7 +78,7 @@ export default function Home() {
               </Button>
             </Link>
           </div>
-          <div className="flex flex-col space-y-10">
+          <div className="flex flex-col w-full lg:space-y-10">
             <img
               src="/assets/SilentShotPageAB.png"
               className="w-full"
