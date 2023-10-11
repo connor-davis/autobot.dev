@@ -8,8 +8,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Label } from "@/components/ui/label";
 import { Menubar } from "@/components/ui/menubar";
-import { SignedIn, UserButton } from "@clerk/nextjs";
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { MoonIcon, OpenInNewWindowIcon, SunIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -21,6 +21,16 @@ export default function Home() {
           <Label className="text-2xl font-bold text-primary">
             <Link href="/">Autobot</Link>
           </Label>
+          <Link href="/">Home</Link>
+          <Link
+            href="https://github.com/connor-davis/AutobotSetup/releases"
+            target="_blank"
+          >
+            <div className="flex items-center space-x-1">
+              <p>Download</p>
+              <OpenInNewWindowIcon />
+            </div>
+          </Link>
         </div>
 
         <div className="flex items-center space-x-5">
@@ -29,6 +39,51 @@ export default function Home() {
           <SignedIn>
             <UserButton />
           </SignedIn>
+
+          <SignedOut>
+            <SignInButton>
+              <Button className="w-full">
+                <div className="flex items-center space-x-1">
+                  <p>Sign In</p>
+                </div>
+              </Button>
+            </SignInButton>
+          </SignedOut>
+        </div>
+      </div>
+
+      <div className="flex flex-col w-full h-full overflow-y-auto lg:px-96">
+        <div className="grid grid-cols-1 gap-10 py-10 lg:grid-cols-3">
+          <div className="flex flex-col col-span-2 space-y-10">
+            <Label className="text-4xl font-bold">
+              Make It Easier With Autobot
+            </Label>
+
+            <p>
+              Autobot allows you to perform key combinations easily by allowing
+              you to choose what keys must be pressed and it also allows you to
+              choose the timings it needs between those keys.
+            </p>
+
+            <Link
+              href="https://github.com/connor-davis/AutobotSetup/releases"
+              target="_blank"
+            >
+              <Button className="w-full">
+                <div className="flex items-center space-x-1">
+                  <p>Download</p>
+                  <OpenInNewWindowIcon />
+                </div>
+              </Button>
+            </Link>
+          </div>
+          <div className="flex flex-col space-y-10">
+            <img
+              src="/assets/SilentShotPageAB.png"
+              className="w-full"
+              width="auto"
+            />
+          </div>
         </div>
       </div>
     </div>
