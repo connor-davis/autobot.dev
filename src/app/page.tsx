@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="flex flex-col w-screen h-screen">
-      <div className="flex items-center justify-between p-3 border-b border-border">
+      <div className="flex items-center justify-between p-3 border-b border-border lg:hidden">
         <Label className="text-2xl font-bold lg:hidden text-primary">
           <Link href="/">Autobot</Link>
         </Label>
@@ -50,7 +50,6 @@ export default function Home() {
             </SignInButton>
           </SignedOut>
         </div>
-        fd
       </div>
 
       <div className="flex flex-col w-full h-full px-10 overflow-y-auto lg:px-96">
